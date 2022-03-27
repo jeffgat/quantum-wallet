@@ -1,0 +1,8 @@
+.vscode/
+node_modules/
+build
+.DS_Store
+.env*
+dump.rdb
+bitcoin-cli.txt
+deploy.txt

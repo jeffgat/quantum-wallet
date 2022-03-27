@@ -1,0 +1,21 @@
+{
+  "compilerOptions": {
+    "target": "es6",
+    "module": "commonjs",
+    "lib": [
+      "dom",
+      "es6",
+      "es2017",
+      "esnext.asynciterable"
+    ],
+    "baseUrl": ".",
+    "experimentalDecorators": true
+  },
+  "exclude": [
+    "node_modules"
+  ],
+  "include": [
+    "./src/**/*.jsx",
+    "./src/**/*.js"
+  ],
+}

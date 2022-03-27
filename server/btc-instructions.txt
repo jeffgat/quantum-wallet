@@ -1,0 +1,25 @@
+0. Init regtest bitcoin node
+Run btc-regtest.sh
+
+1. Check if working
+docker exec --user bitcoin bitcoin-server bitcoin-cli -regtest getnetworkinfo
+
+2. Init main wallet from which we send funds
+docker exec --user bitcoin bitcoin-server bitcoin-cli -regtest createwallet main
+
+3. Generate address for main wallet
+docker exec --user bitcoin bitcoin-server bitcoin-cli -regtest getnewaddress
+
+4. Add funds to wallet
+docker exec --user bitcoin bitcoin-server bitcoin-cli -regtest generatetoaddress 500 <main address here>
+docker exec --user bitcoin bitcoin-server bitcoin-cli -regtest generatetoaddress 500 bcrt1qj2hh9kre29sz83h0l7t6q6wxuj8624tcq74jz8
+
+docker exec --user bitcoin bitcoin-server bitcoin-cli -rpcwallet=main -regtest settxfee 0.00001
+NOTES: 
+- Will have to drop/reset the database everytime we terminate the bitcoin node
+
+btc main address
+bcrt1qj2hh9kre29sz83h0l7t6q6wxuj8624tcq74jz8
+
+curl --data-binary '{"jsonrpc":"1.0","id":"1","method":"getnetworkinfo","params":[]}' http://jeff:Pz5r-8D4zlCBq8hpPMBya-r5-lTY4BhBalxoHNa1w2Y=@127.0.0.1:18443
+curl --data-binary '{"jsonrpc":"1.0","id":"1","method":"listwallets","params":[]}' http://jeff:Pz5r-8D4zlCBq8hpPMBya-r5-lTY4BhBalxoHNa1w2Y=@127.0.0.1:18443
